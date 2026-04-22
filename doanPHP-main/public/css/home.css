@@ -1,0 +1,196 @@
+/* phần riêng cho trang chủ, ví dụ: friend suggestion, profile activity, event list */
+
+.right-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.right-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+.right-link {
+    font-size: 11px;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.suggest-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.suggest-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background-size: cover;
+    background-position: center;
+}
+.suggest-main {
+    flex: 1;
+}
+.suggest-name {
+    font-size: 13px;
+    font-weight: 500;
+}
+.suggest-username {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+.suggest-add-btn {
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+.post-menu {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  padding: 6px;
+  min-width: 180px;
+}
+
+.post-menu__item {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.post-menu__item:hover,
+.post-menu__item:focus {
+  background: #f3f5f9;
+  outline: none;
+}
+
+/* Top bar layout */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Chuông thông báo */
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notif-bell {
+  position: relative;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.notif-bell:focus {
+  outline: none;
+}
+
+.notif-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
+
+/* Popup thông báo */
+.notif-popup {
+  position: fixed;
+  top: 56px; /* chỉnh theo chiều cao header */
+  right: 24px;
+  width: 320px;
+  max-height: 420px;
+  background: var(--bg-card, #fff);
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.25);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.notif-popup.is-open {
+  display: flex;
+}
+
+.notif-popup__header {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color, #e5e7eb);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.notif-popup__body {
+  padding: 8px 10px;
+  overflow-y: auto;
+}
+
+.notif-item {
+  display: flex;
+  gap: 10px;
+  padding: 8px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.notif-item:hover {
+  background: #f3f4ff;
+}
+
+.notif-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+.notif-main {
+  flex: 1;
+  font-size: 13px;
+}
+
+.notif-text strong {
+  font-weight: 600;
+}
+
+.notif-empty {
+  padding: 10px 4px;
+  font-size: 13px;
+  color: var(--text-muted, #6b7280);
+}
+
+.notif-separator {
+  border: 0;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+  margin: 6px 0;
+}

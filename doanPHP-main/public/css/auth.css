@@ -1,0 +1,25 @@
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #374151;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: 0;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 999px;
+}
+
+.alert {
+    border-radius: 8px;
+    padding: 10px 14px;
+}

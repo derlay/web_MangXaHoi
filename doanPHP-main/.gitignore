@@ -1,0 +1,15 @@
+/vendor/
+/storage/logs/
+/storage/uploads/
+/.env
+.idea/
+.vscode/
+.DS_Store
+
+.github/instructions/kluster-code-verify.instructions.md
+.kluster
+.env
+
+
+
+

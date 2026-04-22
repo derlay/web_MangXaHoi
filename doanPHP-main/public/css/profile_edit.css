@@ -1,0 +1,170 @@
+body {
+  background: #f0f2f5;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+.edit-main {
+  max-width: 1100px;
+  margin: 16px auto;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 16px;
+}
+
+@media (max-width:992px) {
+  .edit-main {
+      grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .04);
+  padding: 16px;
+}
+
+.cover-box {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.cover-preview {
+  width: 100%;
+  height: 300px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+}
+
+.cover-actions {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.avatar-preview {
+  width: 160px; 
+  height:160px; 
+  border-radius:999px; 
+  border: 6px solid var(--card);
+  background-size:cover; 
+  background-position:center; 
+  box-shadow: var(--shadow);
+}
+
+.small-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.loading-btn {
+  opacity: .7;
+  pointer-events: none;
+}
+
+.btn-file {
+  --file-bg: #4ab0e3;          /* màu nền bình thường */
+  --file-bg-hover: #006493;    /* hover */
+  --file-bg-active: #00557d;   /* active (click) */
+  --file-bg-disabled: #7ba7bc; /* disabled */
+  --file-color: #ffffff;
+  --file-ring: 0 0 0 3px rgba(86, 187, 238, 0.35);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 24px;
+  font: 600 14px/1 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  color: var(--file-color);
+  background: var(--file-bg);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .18s, transform .15s, box-shadow .18s;
+  position: relative;
+  text-decoration: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.btn-file:hover {
+  background: var(--file-bg-hover);
+}
+
+.btn-file:active {
+  background: var(--file-bg-active);
+  transform: translateY(1px);
+}
+
+.btn-file:focus-visible {
+  outline: none;
+  box-shadow: var(--file-ring);
+}
+
+.btn-file:disabled,
+.btn-file.disabled {
+  background: var(--file-bg-disabled);
+  cursor: not-allowed;
+  opacity: .85;
+}
+
+/* Spinner khi loading */
+.btn-file.loading {
+  pointer-events: none;
+}
+
+.btn-file .spinner {
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgba(255,255,255,.45);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: file-spin .7s linear infinite;
+  display: none;
+}
+
+.btn-file.loading .spinner {
+  display: inline-block;
+}
+
+.btn-file.loading .file-text {
+  opacity: .85;
+}
+
+@keyframes file-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Variant màu (tuỳ chọn) */
+.btn-file.green {
+  --file-bg:#059669;
+  --file-bg-hover:#047857;
+  --file-bg-active:#03684e;
+  --file-bg-disabled:#64bfa6;
+  --file-ring:0 0 0 3px rgba(5,150,105,.35);
+}
+
+.btn-file.red {
+  --file-bg:#dc2626;
+  --file-bg-hover:#b91c1c;
+  --file-bg-active:#991b1b;
+  --file-bg-disabled:#e87979;
+  --file-ring:0 0 0 3px rgba(220,38,38,.35);
+}
+
+/* Dark mode tự động */
+@media (prefers-color-scheme: dark) {
+  .btn-file {
+    --file-bg:#0d608a;
+    --file-bg-hover:#0a557a;
+    --file-bg-active:#094968;
+    --file-bg-disabled:#377a99;
+  }
+}

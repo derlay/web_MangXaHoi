@@ -1,0 +1,116 @@
+.app-shell {
+    min-height: 100vh;
+    display: block;
+    padding: 0;
+    background: #e5e7eb; /* hoặc #fff */
+}
+
+.app-frame {
+    max-width: none;
+    width: 100%;
+    background: #e5e7eb;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Thanh top */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: var(--bg-header);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Grid 3 cột: sidebar trái, feed, sidebar phải */
+.layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1.35fr) 320px;
+    gap: 20px;
+    padding: 18px 20px 22px;
+    background: var(--bg-main);
+    flex: 1;
+    overflow: hidden;
+}
+
+.left-sidebar {
+    background: var(--bg-sidebar);
+    border-radius: 20px;
+    padding: 18px 14px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.center-column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-y: auto; /* CHỈ cột giữa scroll */
+   
+}
+
+.right-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.left-sidebar,
+.right-sidebar {
+    position: sticky;
+    top: 18px; /* cách header 1 chút */
+    align-self: flex-start;
+    max-height: calc(100vh - 18px - 60px); /* trừ header + padding, chỉnh theo ý bạn */
+    overflow-y: auto; /* nếu nội dung sidebar dài hơn thì sidebar tự scroll riêng */
+}
+
+
+
+/* Không tạo vùng cuộn riêng gây kẹt */
+.app-shell,
+.app-frame,
+.layout,
+.fb-center,
+.post-list {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Sentinel của infinite scroll không bắt chuột */
+.sentinel { height: 1px; pointer-events: none; }
+
+/* Overlay bình luận: ẩn thì không chặn chuột/cuộn */
+#cmt-ov { display: none !important; pointer-events: none !important; }
+#cmt-ov.show { display: block !important; pointer-events: auto !important; }
+
+/* Phòng các lớp phủ full-screen khác vô tình che trang */
+[data-backdrop],
+[data-overlay],
+.modal-backdrop {
+  pointer-events: none;
+}
+.post__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex: 0 0 40px;
+}
+.composer__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex: 0 0 40px;
+}

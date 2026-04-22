@@ -1,0 +1,153 @@
+:root{
+  --bg: #f0f2f5;
+  --card: #fff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #1877f2;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(16,24,40,.08);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body.bg-app{ background: var(--bg); color: var(--text); margin: 0; }
+
+/* Top bar */
+.fb-topbar{ position: sticky; top: 0; z-index: 100; background: var(--card); border-bottom: 1px solid var(--border); }
+.fb-topbar__inner{ max-width: 1200px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 12px; }
+.fb-brand{ font-weight: 800; color: var(--accent); text-decoration: none; }
+.fb-search{ flex: 1; display:flex; }
+.fb-search__input{ width: 100%; border: 1px solid var(--border); background: #f9fafb; border-radius: 999px; padding: 8px 14px; font-size: 14px; outline: none; }
+.fb-actions{ display:flex; align-items:center; gap:10px; }
+.fb-me{ display:flex; align-items:center; gap:8px; text-decoration:none; color:inherit; }
+.fb-me__avatar{ width:28px; height:28px; border-radius:999px; background-size:cover; background-position:center; }
+.fb-me__name{ font-weight:600; font-size:14px; }
+
+/* Cover + profile head */
+/* XÓA khoảng trắng trên cùng */
+.profile-cover{ margin: 0; padding: 0; background: var(--card); border-bottom: 1px solid var(--border); }
+.profile-cover__img{ background-size: cover; background-position: center; }
+
+/* Khi CÓ cover: cao hơn và có gradient */
+.profile-cover.has-cover .profile-cover__img{ height: 280px; background-color: #dfe3ee; }
+.profile-cover.has-cover .profile-cover__gradient{
+  height: 80px; margin-top: -80px;
+  background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,0));
+  display:block;
+}
+
+/* Khi KHÔNG cover: hạ thấp chiều cao, bỏ gradient để không tạo khoảng trắng */
+.profile-cover.no-cover .profile-cover__img{
+  height: 140px;
+  background: linear-gradient(180deg, #f3f4f8, #e5e7eb);
+}
+.profile-cover.no-cover .profile-cover__gradient{ display:none; }
+
+/* Đẩy avatar chồng lên cover: độ lệch tùy theo chiều cao cover */
+.container{ max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+.profile-head{ display:flex; align-items:flex-end; justify-content: space-between; padding-bottom: 12px; }
+.profile-cover.has-cover .profile-head{ margin-top: -60px; }
+.profile-cover.no-cover  .profile-head{ margin-top: -40px; }
+
+.profile-head__left{ display:flex; align-items:flex-end; gap: 16px; }
+.profile-head__avatar{
+  width: 160px; height:160px; border-radius:999px; border: 6px solid var(--card);
+  background-size:cover; background-position:center; box-shadow: var(--shadow);
+}
+.profile-head__meta .profile-name{ margin:0; font-size: 28px; font-weight: 800; }
+.profile-username{ color: var(--muted); font-size: 14px; }
+.profile-bio{ margin-top: 6px; color: var(--text); }
+.profile-head__actions{ display:flex; gap:8px; }
+
+/* Tabs */
+.profile-tabs{ background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-top: 0; }
+.profile-tabs__inner{ display:flex; gap: 16px; }
+.profile-tab{ display:inline-flex; align-items:center; gap:8px; padding: 10px 8px; color:#334155; text-decoration:none; font-weight:600; font-size:14px; border-bottom: 2px solid transparent; }
+.profile-tab:hover{ color: var(--accent); }
+.profile-tab.active{ color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Main grid */
+.fb-main{ display:grid; grid-template-columns: 360px minmax(0, 1fr); gap: 20px; padding: 20px 16px 40px; }
+.fb-left.sticky{ position: sticky; top: 76px; height: fit-content; }
+.fb-card{ border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--border); background: var(--card); margin-bottom: 16px; }
+
+/* Photos sample */
+.photos-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.photos-grid__empty{ font-size: 13px; }
+
+/* Composer */
+.composer{ padding: 10px 10px 12px; }
+.composer__header{ display:flex; align-items:center; gap:10px; padding: 8px 8px 0; }
+.composer__avatar{ width:40px; height:40px; border-radius:999px; background-size:cover; background-position:center; }
+.composer__input{ flex:1; height:40px; border-radius:999px; background:#f0f2f5; border:1px solid var(--border); padding: 0 14px; outline:none; }
+.composer__form{ padding: 8px; }
+.composer__preview{ max-height: 420px; overflow-y: auto; border: 1px solid var(--border); border-radius: 10px; margin-top: 10px; background:#fff; padding: 8px; }
+.composer__preview img, .composer__preview video{ width: 100%; height: auto; display: block; border-radius: 8px; }
+.composer__toolbar{ display:flex; align-items:center; gap:10px; padding: 8px 6px 0; border-top:1px solid var(--border); margin-top: 8px; }
+.composer__tool{ background:#eef2ff; color:#4f46e5; border:1px solid #dbeafe; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight:600; }
+.lock-scroll{ overflow:hidden; }
+
+/* Post card */
+.post{ padding: 10px; }
+.post__header{ display:flex; align-items:center; gap:10px; padding: 6px 6px 0; }
+.post__avatar{ width:40px; height:40px; border-radius:999px; background-size:cover; background-position:center; }
+.post__meta{ flex:1; }
+.post__author{ font-weight:700; font-size:14px; }
+.post__time{ color: var(--muted); font-size: 12px; }
+.post__more{ border:none; background:none; font-size: 20px; color: #64748b; }
+.post__text{ padding: 8px 6px; font-size: 14px; line-height: 1.5; }
+.post__media img, .post__media video{ width: 100%; border-radius: 10px; display:block; }
+.post__actions{ display:flex; gap:8px; padding: 6px; border-top:1px solid var(--border); }
+.post-action{ flex:1; text-align:center; background:#f8fafc; border:1px solid var(--border); border-radius: 10px; padding: 8px 10px; font-weight:600; font-size: 13px; color:#334155; }
+.post-action:hover{ background:#eef2ff; color:#4f46e5; border-color:#dbeafe; }
+.post-action.is-liked{ background:#eff6ff; color:#2563eb; border-color:#bfdbfe; }
+.post__stats{ display:flex; gap:12px; padding: 6px; color: var(--muted); font-size: 12px; }
+.post__comments{ padding: 8px 6px 10px; }
+.comment-box{ display:flex; align-items:center; gap:8px; border:1px solid var(--border); background:#f9fafb; border-radius:999px; padding: 6px 10px; }
+.comment-input{ flex:1; border:none; background:transparent; outline:none; font-size: 14px; }
+.existing-comments{ display:flex; flex-direction:column; gap:8px; margin-bottom:8px; }
+.single-comment{ background: #fff; border:1px solid var(--border); border-radius: 10px; padding: 8px 10px; font-size: 13px; }
+.single-comment .c-author{ font-weight: 700; margin-right: 6px; }
+
+/* Responsive */
+@media (max-width: 992px){
+  .profile-head{ flex-direction: column; align-items:flex-start; gap: 12px; }
+  .profile-head__avatar{ width: 120px; height: 120px; }
+  .fb-main{ grid-template-columns: 1fr; }
+  .fb-left.sticky{ position: static; }
+}
+
+.post-menu {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  padding: 6px;
+  min-width: 180px;
+}
+
+.post-menu__item {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.post-menu__item:hover,
+.post-menu__item:focus {
+  background: #f3f5f9;
+  outline: none;
+}
+
+.post-menu__item--danger {
+  color: #d92d20;
+}
+.post-menu__item--danger:hover,
+.post-menu__item--danger:focus {
+  background: #fff1f0;
+}
